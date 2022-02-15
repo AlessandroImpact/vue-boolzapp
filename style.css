@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(180deg);
+}
+
+
+
+.container {
+
+    min-width: 500px;
+    width: 80%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+
+
+}
+
+.container::after{
+    content: '';
+    display: block;
+
+
+}
+
+
+
+.left, .right {
+    float: left;
+    height: 100%;
+}
+
+.left {
+    background-color: red;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.right {
+    background-color: yellow;
+    width: 60%;
+}
+
+
+
