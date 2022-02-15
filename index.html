@@ -34,14 +34,14 @@
 
             <div class="contacts-left">
 
-                <div class="contact active"> <!--questo andrà dinamicizzato-->
+                <div class="contact" v-for="contact in contacts"> <!--questo andrà dinamicizzato-->
 
                     <div class="contact-logo">
-                        <img src="" alt="">
+                        <img :src='`./img/avatar${contact.avatar}.jpg `'>
                     </div>
 
                     <div class="contact-info">
-                        <h3>Michele</h3>
+                        <h3>{{contact.name}}</h3>
                         <span>lorem</span>
                     </div>
 
