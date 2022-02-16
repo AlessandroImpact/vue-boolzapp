@@ -4,51 +4,246 @@
     box-sizing: border-box;
 }
 
-body{
-    height: 100vh;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* big contenitore generale */
+#big-container {
     width: 100%;
-    background-image: linear-gradient(180deg);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* background gradient */    
+    background: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
 }
 
 
-
-.container {
-
-    min-width: 500px;
+/* contenitore chat sx */
+#app-container {
     width: 80%;
     height: 90%;
-    margin: auto;
+    min-height: 300px;
+    min-width: 700px;
     display: flex;
-
-
+    overflow: hidden;
 }
 
-.container::after{
-    content: '';
-    display: block;
-
-
+/* colonna utenti sx */
+.col-sx-user-contact {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgray;
+    background-color: #fff;
 }
 
+/* utente attivo*/
+.col-sx-user-contact-active {
+    width: 100%;
+    display: flex;
+    background-color: #eaeaea;
+}
 
+/* utente */
+.user-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 70%;
+}
 
-.left, .right {
-    float: left;
+/* img utenti*/
+.user-image {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
     height: 100%;
 }
 
-.left {
-    background-color: red;
-    width: 40%;
+.user-image img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.user-name {
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+/*  icone utente */
+.user-icon {
     display: flex;
-    flex-direction: column;
-
+    align-items: center;
+    justify-content: flex-end;
+    width: 30%;
 }
 
-.right {
-    background-color: yellow;
-    width: 60%;
+ul {
+    list-style: none;
 }
+
+a {
+    text-decoration: none;
+}
+
+.user-icon ul{
+    display: flex;
+}
+
+.user-icon li{
+    padding: 0px 7px;
+}
+
+/* posizionamento e colore icone */
+.user-icon li:last-child{
+    margin-right: 10px;
+}
+
+.user-icon i{
+    font-size: 15px;
+    color: #b1b1b1;
+}
+
+.user-icon i:hover{
+    color: grey;
+}
+
+.user-icon i:hover{
+    color: grey;
+    transition: 1s;
+}
+
+/* notifiche */
+.notifications {
+    display: flex;
+    align-items: center;
+    background-color: #8edafb;
+    padding: 10px;
+}
+
+/*icone notifiche */
+.notifications-icon {
+    color: #8edafb;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+/* testo notifiche */
+.notifications-text {
+    padding: 0px 10px;
+}
+
+.notifications-text p {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.notifications-text a {
+    font-size: 12px;
+    text-decoration: underline;
+    color: grey;
+}
+
+/* contatti search */
+.search-contact input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 5px 60px;
+    color: #b1b1b1;
+}
+
+.search-contact {
+    width: 100%;
+    position: relative;
+    background-color: #eaeaea;
+    text-align: center;
+    padding: 5px;
+}
+
+.search-contact i {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 14px;
+    color: #b1b1b1;
+}
+
+/* lista contatti*/
+.contact-list {
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* singolo user */
+.single-user-chat {
+    padding: 10px;
+    display: flex;
+    border: 1px solid #eaeaea;
+    cursor: pointer;
+}
+
+/* img e text single user*/
+.single-user-chat-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.single-user-chat-name {
+   padding-left: 10px;
+
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+
+.title-text-contact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.single-user-chat-name .name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.single-user-chat-name .mex {
+    /* imposta larghezza in px */
+    width: 100px;
+    /* regole per tagliare la lunghezza del mess in chatsx */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: gray;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.single-user-chat-name .time {
+    font-size: 10px;
+    color: gray;
+}
+
+
+
 
 
 
