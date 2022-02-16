@@ -5,6 +5,9 @@ const app = new Vue(
         el:'#root',
         data: {
 
+            currentContactAttivo: 0,
+            newMessage: "",
+
             contacts: [
                 {
                 name: 'Michele',
@@ -93,6 +96,37 @@ const app = new Vue(
 
         },
         methods: {
+
+                        // funzione invio mess
+                        messageSent() {
+                            if(this.newMessage != '') {
+                                this.contacts[this.currentContactAttivo].messages.push(
+                                    {
+                                        date: '16/02/2022 15:00:00',
+                                        text: this.newMessage,
+                                        status: 'sent'
+                                    }
+                                );
+                                        //aspetto 1 sec prima di rispondere
+                                setTimeout(this.messageReceived, 1000);
+                            }
+            
+                            this.newMessage = '';
+                        },
+                        // funzione per far apparire la chat dell'utente cliccato
+                        currentActive(index) {
+                            this.currentContactAttivo = index
+                        },
+                        // funzione per risposta
+                        messageReceived() {
+                            this.contacts[this.currentContactAttivo].messages.push(
+                                {
+                                    date: '16/02/2022 15:00:00',
+                                    text: 'Va bene!',
+                                    status: 'received'
+                                }
+                            );
+                        }
 
         }
     }
