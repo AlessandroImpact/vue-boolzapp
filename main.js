@@ -7,6 +7,9 @@ const app = new Vue(
 
             currentContactAttivo: 0,
             newMessage: "",
+            selected: "",
+            lastDateAccess: "",
+            activeMessage: "",
 
             contacts: [
                 {
@@ -102,7 +105,7 @@ const app = new Vue(
                             if(this.newMessage != '') {
                                 this.contacts[this.currentContactAttivo].messages.push(
                                     {
-                                        date: '16/02/2022 15:00:00',
+                                        date: dayjs().format('DD/MM/YYYY h:mm:ss'),
                                         text: this.newMessage,
                                         status: 'sent'
                                     }
@@ -121,14 +124,37 @@ const app = new Vue(
                         messageReceived() {
                             this.contacts[this.currentContactAttivo].messages.push(
                                 {
-                                    date: '16/02/2022 15:00:00',
+                                    date: dayjs().format('DD/MM/YYYY h:mm:ss'),
                                     text: 'Va bene!',
                                     status: 'received'
                                 }
                             );
-                        }
-
-        }
-    }
-
-)
+                        },
+                        // ricerca utenti nella barra di ricerca della chat
+                        searchRicerca() {
+                            const ricerca = this.selected;
+            
+                            this.contacts.forEach(contact => {
+                                if (!contact.name.toLowerCase().includes(ricerca.toLowerCase())) {
+                                    contact.visible = false;
+                                } else if (this.selected == '') {
+                                    contact.visible = true;
+                                }
+                            });
+                        },
+                        // mostra info correnti al contatto selezionato in 'ultimo accesso'
+                        dateCurrent() {
+                            let contactMessage = this.contacts[this.currentContactAttivo].messages;
+            
+                            if (contactMessage[parseInt(contactMessage.length - 1)].status == 'received') {
+                                lastAccess = contactMessage[parseInt(contactMessage.length - 1)].date;
+                            } else {
+                                lastAccess = contactMessage[parseInt(contactMessage.length - 2)].date;
+                            }
+                            return this.lastDateAccess = lastAccess;
+                        },
+            
+                    }
+                    // fine methods
+                }
+            );
